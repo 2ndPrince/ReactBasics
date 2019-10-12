@@ -8,14 +8,14 @@ configure({ adapter: new Adapter() });
 class App extends Component {
     
     //code goes here
-    constructor(props){
-        super(props);
+    constructor(){
+        super();
         this.state ={
           count: 0
-        }
+        };
     }
 
-    handleClick = () => {
+    handleClick() {
         const {count} = this.state;
         this.setState({ count : count + 1});
     } 
@@ -24,7 +24,7 @@ class App extends Component {
         return(
             <div>
                 <h1>{this.state.count}</h1>
-                <button onClick={handleClick}>myButton</button>
+                <button onClick={ this.handleClick.bind(this) }>myButton</button>
             </div>
         )
     }
